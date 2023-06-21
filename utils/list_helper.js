@@ -1,28 +1,28 @@
-const _ = require('lodash');
+const _ = require('lodash')
 
-const dummy = (blogs) => {
-  return 1;
-};
+const dummy = () => {
+  return 1
+}
 
 const totalLikes = (blogPostList) => {
-  let total = 0;
+  let total = 0
   blogPostList.forEach((blog) => {
-    return (total += blog.likes);
-  });
-  return total;
-};
+    return (total += blog.likes)
+  })
+  return total
+}
 
 const favouriteBlog = (blogPostList) => {
   const maxLikesBlog = blogPostList.reduce((prev, current) => {
-    return prev.likes > current.likes ? prev : current;
-  });
+    return prev.likes > current.likes ? prev : current
+  })
 
   return {
     title: maxLikesBlog.title,
     author: maxLikesBlog.author,
     likes: maxLikesBlog.likes,
-  };
-};
+  }
+}
 
 const mostBlogs = (blogPostList) => {
   const authorsWithMostBlogs = _.maxBy(
@@ -31,9 +31,9 @@ const mostBlogs = (blogPostList) => {
       blogs: val,
     })),
     'author'
-  );
-  return authorsWithMostBlogs;
-};
+  )
+  return authorsWithMostBlogs
+}
 
 const mostLikes = (blogPostList) => {
   const maxLikes = _(blogPostList)
@@ -42,11 +42,11 @@ const mostLikes = (blogPostList) => {
       author: key,
       likes: _.sumBy(objs, 'likes'),
     }))
-    .maxBy('likes');
+    .maxBy('likes')
 
-  console.log('console log', maxLikes);
-  return maxLikes;
-};
+  console.log('console log', maxLikes) // eslint-disable-line no-console
+  return maxLikes
+}
 
 module.exports = {
   dummy,
@@ -54,4 +54,4 @@ module.exports = {
   favouriteBlog,
   mostBlogs,
   mostLikes,
-};
+}
