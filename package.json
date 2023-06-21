@@ -8,7 +8,8 @@
     "dev": "concurrently --kill-others-on-fail \"NODE_ENV=development nodemon index.js\" \"cd client && npm start\"",
     "test": "NODE_ENV=test jest --verbose --runInBand --forceExit",
     "lint": "eslint",
-    "start:test": "NODE_ENV=test node index.js"
+    "start:test": "NODE_ENV=test node index.js",
+    "test:e2e": "cd client && npm run cypress:run"
   },
   "author": "Ahmed Kasu",
   "license": "ISC",
