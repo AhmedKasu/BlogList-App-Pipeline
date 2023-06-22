@@ -19,3 +19,6 @@ jobs:
 
       - name: Check style
         run: npm run lint
+
+      - name: Create production build
+        run: npm run build
