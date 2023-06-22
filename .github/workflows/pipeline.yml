@@ -34,4 +34,6 @@ jobs:
         with:
           command: npm run test:e2e
           start: npm run start:test
-          wait-on: http://localhost:3000
+          wait-on: http://localhost:5000
+        env:
+          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
