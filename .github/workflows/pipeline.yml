@@ -16,3 +16,6 @@ jobs:
 
       - name: Install dependencies
         run: npm i && cd client && npm i
+
+      - name: Check style
+        run: npm run lint
