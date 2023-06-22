@@ -10,7 +10,7 @@
     "start": "NODE_ENV=production node index.js",
     "build": "cd client && npm run build",
     "dev": "concurrently --kill-others-on-fail \"NODE_ENV=development nodemon index.js\" \"cd client && npm start\"",
-    "test": "NODE_ENV=test jest --verbose --runInBand --forceExit",
+    "test": "NODE_ENV=test jest --verbose --runInBand && cd client && npm test --forceExit",
     "lint": "eslint './**/*.{js,jsx}'",
     "start:test": "NODE_ENV=test node index.js",
     "test:e2e": "cd client && npm run cypress:run"
