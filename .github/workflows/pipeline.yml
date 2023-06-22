@@ -37,3 +37,4 @@ jobs:
           wait-on: http://localhost:3003
         env:
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          SECRETE: ${{ secrets.SECRETE }}
