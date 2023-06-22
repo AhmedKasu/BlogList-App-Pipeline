@@ -78,6 +78,6 @@ describe('<BlogsForm/>', () => {
     expect(mockHandler.mock.calls).toHaveLength(1)
     expect(mockHandler.mock.calls[0][0].title).toBe('Testing the blogs form')
     expect(mockHandler.mock.calls[0][0].author).toBe('Ahmed Kasu')
-    expect(mockHandler.mock.calls[0][0].url).toBe('https://www.testinggg.com')
+    expect(mockHandler.mock.calls[0][0].url).toBe('https://www.testing.com')
   })
 })
