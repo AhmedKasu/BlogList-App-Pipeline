@@ -25,3 +25,6 @@ jobs:
 
       - name: Test code
         run: npm test
+        env:
+          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          SECRETE: ${{ secrets.SECRETE }}
