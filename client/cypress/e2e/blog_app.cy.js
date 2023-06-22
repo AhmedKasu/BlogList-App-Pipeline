@@ -119,8 +119,14 @@ describe('Blog app', function () {
         url: 'http://www.e2etesting.com',
         likes: 31,
       });
-      cy.get('.blogs').eq(0).should('contain', 'Max likes blog');
-      cy.get('.blogs').eq(1).should('contain', 'Mini likes blog');
+      cy.get(':nth-child(1) > :nth-child(2) > :nth-child(5)').should(
+        'contain',
+        'Max likes blog'
+      );
+      cy.get(':nth-child(2) > :nth-child(6)').should(
+        'contain',
+        'Mini likes blog'
+      );
 
       cy.get('.defaultDiv')
         .eq(1)
@@ -135,8 +141,14 @@ describe('Blog app', function () {
         .get(':nth-child(5) > .onViewClickDiv > :nth-child(1) > .hide')
         .click({ force: true });
 
-      cy.get('.blogs').eq(0).should('contain', 'Mini likes blog');
-      cy.get('.blogs').eq(1).should('contain', 'Max likes blog');
+      cy.get(':nth-child(1) > :nth-child(2) > :nth-child(5)').should(
+        'contain',
+        'Mini likes blog'
+      );
+      cy.get(':nth-child(2) > :nth-child(6)').should(
+        'contain',
+        'Max likes blog'
+      );
     });
   });
 });
