@@ -100,7 +100,7 @@ describe('Blog app', function () {
 
       cy.login({ username: 'Blasha', password: '54321' });
       cy.get('.view').click();
-      cy.get('#delete').click({ force: true });
+      cy.get('#delete').should('contain', 'delete').click();
 
       cy.contains('unauthorised user');
       cy.get('#error').should('contain', 'unauthorised user');
@@ -128,9 +128,11 @@ describe('Blog app', function () {
         cy.get('.defaultDiv')
           .eq(1)
           .get(':nth-child(6) > .defaultDiv > .view')
-          .click({ force: true })
-          .get(':nth-child(6) > .onViewClickDiv > #likesDiv > #like')
           .click({ force: true });
+
+        cy.get(':nth-child(6) > .onViewClickDiv > #likesDiv > #like').click({
+          force: true,
+        });
       }
 
       cy.get('.onViewClickDiv')
