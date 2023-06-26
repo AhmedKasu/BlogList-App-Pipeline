@@ -107,39 +107,39 @@ describe('Blog app', function () {
       cy.contains('You can not delete my blog Cristiano Ronaldo');
     });
 
-    //   it.only('Blogs are sorted by the number of likes', function () {
-    //     cy.createBlog({
-    //       title: 'Mini likes blog',
-    //       author: 'Cristiano Ronaldo',
-    //       url: 'http://www.e2etesting.com',
-    //       likes: 30,
-    //     });
-    //     cy.createBlog({
-    //       title: 'Max likes blog',
-    //       author: 'Cristiano Ronaldo',
-    //       url: 'http://www.e2etesting.com',
-    //       likes: 31,
-    //     });
+    it.only('Blogs are sorted by the number of likes', function () {
+      cy.createBlog({
+        title: 'Mini likes blog',
+        author: 'Cristiano Ronaldo',
+        url: 'http://www.e2etesting.com',
+        likes: 30,
+      });
+      cy.createBlog({
+        title: 'Max likes blog',
+        author: 'Cristiano Ronaldo',
+        url: 'http://www.e2etesting.com',
+        likes: 31,
+      });
 
-    //     cy.get('.blogs').eq(0).should('contain', 'Max likes blog');
-    //     cy.get('.blogs').eq(1).should('contain', 'Mini likes blog');
+      cy.get('.blogs').eq(0).should('contain', 'Max likes blog');
+      cy.get('.blogs').eq(1).should('contain', 'Mini likes blog');
 
-    //     for (let n = 0; n < 3; n++) {
-    //       cy.get('.defaultDiv')
-    //         .eq(1)
-    //         .get(':nth-child(6) > .defaultDiv > .view')
-    //         .click({ force: true })
-    //         .get(':nth-child(6) > .onViewClickDiv > #likesDiv > #like')
-    //         .click({ force: true });
-    //     }
+      for (let n = 0; n < 3; n++) {
+        cy.get('.defaultDiv')
+          .eq(1)
+          .get(':nth-child(6) > .defaultDiv > .view')
+          .click({ force: true })
+          .get(':nth-child(6) > .onViewClickDiv > #likesDiv > #like')
+          .click({ force: true });
+      }
 
-    //     cy.get('.onViewClickDiv')
-    //       .eq(1)
-    //       .get(':nth-child(5) > .onViewClickDiv > :nth-child(1) > .hide')
-    //       .click({ force: true });
+      cy.get('.onViewClickDiv')
+        .eq(1)
+        .get(':nth-child(5) > .onViewClickDiv > :nth-child(1) > .hide')
+        .click({ force: true });
 
-    //     cy.get('.blogs').eq(0).should('contain', 'Mini likes blog');
-    //     cy.get('.blogs').eq(1).should('contain', 'Max likes blog');
-    //   });
+      cy.get('.blogs').eq(0).should('contain', 'Mini likes blog');
+      cy.get('.blogs').eq(1).should('contain', 'Max likes blog');
+    });
   });
 });
