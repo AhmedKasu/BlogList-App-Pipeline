@@ -95,7 +95,8 @@ describe('Blog app', function () {
         url: 'http://www.e2etesting.com',
         likes: 30,
       });
-      cy.get('#logout').click();
+      cy.get('#logout').should('contain', 'logout').as('logout');
+      cy.get('@logout').click();
 
       cy.login({ username: 'Blasha', password: '54321' });
       cy.get('.view').click();
