@@ -99,7 +99,7 @@ describe('Blog app', function () {
 
       cy.login({ username: 'Blasha', password: '54321' });
       cy.get('.view').click();
-      cy.get('#delete').click();
+      cy.get('#delete').click({ force: true });
 
       cy.contains('unauthorised user');
       cy.get('#error').should('contain', 'unauthorised user');
