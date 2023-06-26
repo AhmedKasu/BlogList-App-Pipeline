@@ -119,36 +119,26 @@ describe('Blog app', function () {
         url: 'http://www.e2etesting.com',
         likes: 31,
       });
-      cy.get(':nth-child(1) > :nth-child(2) > :nth-child(5)').should(
-        'contain',
-        'Max likes blog'
-      );
-      cy.get(':nth-child(2) > :nth-child(6)').should(
-        'contain',
-        'Mini likes blog'
-      );
 
-      cy.get('.defaultDiv')
-        .eq(1)
-        .get(':nth-child(6) > .defaultDiv > .view')
-        .click()
-        .get(':nth-child(6) > .onViewClickDiv > #likesDiv > #like')
-        .click()
-        .click();
+      cy.get('.blogs').eq(0).should('contain', 'Max likes blog');
+      cy.get('.blogs').eq(1).should('contain', 'Mini likes blog');
+
+      for (let n = 0; n < 3; n++) {
+        cy.get('.defaultDiv')
+          .eq(1)
+          .get(':nth-child(6) > .defaultDiv > .view')
+          .click({ force: true })
+          .get(':nth-child(6) > .onViewClickDiv > #likesDiv > #like')
+          .click({ force: true });
+      }
 
       cy.get('.onViewClickDiv')
         .eq(1)
         .get(':nth-child(5) > .onViewClickDiv > :nth-child(1) > .hide')
         .click({ force: true });
 
-      cy.get(':nth-child(1) > :nth-child(2) > :nth-child(5)').should(
-        'contain',
-        'Mini likes blog'
-      );
-      cy.get(':nth-child(2) > :nth-child(6)').should(
-        'contain',
-        'Max likes blog'
-      );
+      cy.get('.blogs').eq(0).should('contain', 'Mini likes blog');
+      cy.get('.blogs').eq(1).should('contain', 'Max likes blog');
     });
   });
 });
