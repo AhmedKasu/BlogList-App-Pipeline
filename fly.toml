@@ -1,0 +1,28 @@
+app = "blog-list-app"
+primary_region = "arn"
+
+[env]
+  PORT = "8080"
+
+[[services]]
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+    
+ [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443  
+
+[deploy]
+  release_command = "npm run build"
+
+[processes]
+  app = "npm start"
+
+[build]
+  [build.args]
+    NODE_VERSION = "19.8.1"
