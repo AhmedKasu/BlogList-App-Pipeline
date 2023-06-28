@@ -17,9 +17,6 @@ primary_region = "arn"
     handlers = ["tls", "http"]
     port = 443  
 
-[deploy]
-  release_command = "npm run build"
-
 [processes]
   app = "npm start"
 
