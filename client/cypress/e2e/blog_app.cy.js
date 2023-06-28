@@ -95,12 +95,14 @@ describe('Blog app', function () {
         url: 'http://www.e2etesting.com',
         likes: 30,
       });
-      cy.get('#logout').should('contain', 'logout').as('logout');
-      cy.get('@logout').click();
+
+      cy.contains('Blogs').get('#logout').click();
 
       cy.login({ username: 'Blasha', password: '54321' });
       cy.get('.view').click();
-      cy.get('#delete').should('contain', 'delete').click();
+      cy.get('#delete').should('not.be.visible').as('deleteButton');
+
+      cy.get('@deleteButton').click({ force: true });
 
       cy.contains('unauthorised user');
       cy.get('#error').should('contain', 'unauthorised user');
