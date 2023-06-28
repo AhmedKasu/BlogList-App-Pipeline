@@ -39,9 +39,12 @@ jobs:
           command: npm run test:e2e
           start: npm run start:test
           wait-on: http://127.0.0.1:3000
+          record: true
         env:
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
           SECRETE: ${{ secrets.SECRETE }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Deploy to Fly.io
