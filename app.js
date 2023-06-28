@@ -9,6 +9,7 @@ const loginRouter = require('./controllers/login')
 const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const mongoose = require('mongoose')
+const healthCheckRouter = require('./controllers/healthCheck')
 
 logger.info('connecting to MongoDB')
 mongoose
@@ -27,6 +28,7 @@ app.use(express.json())
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
 
+app.use('/health', healthCheckRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/blogs', middleware.userExtractor, blogsRouter)
