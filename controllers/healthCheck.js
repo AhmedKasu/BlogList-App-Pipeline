@@ -1,7 +1,12 @@
-const healthCheckRouter = require('express').Router()
+const statusCheck = require('express').Router()
+const versionCheck = require('express').Router()
 
-healthCheckRouter.get('/', (req, res) => {
+statusCheck.get('/', (req, res) => {
   res.status(200).json('ok')
 })
 
-module.exports = healthCheckRouter
+versionCheck.get('/', (req, res) => {
+  res.send('1')
+})
+
+module.exports = { statusCheck, versionCheck }
