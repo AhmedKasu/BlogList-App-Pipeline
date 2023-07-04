@@ -123,8 +123,8 @@ describe('Blog app', function () {
         likes: 31,
       })
 
-      cy.get('.blogs').eq(0).should('contain', 'Max likes blog')
-      cy.get('.blogs').eq(1).should('contain', 'Mini likes blog')
+      cy.get(':nth-child(5) > .defaultDiv').should('contain', 'Max likes blog')
+      cy.get(':nth-child(6) > .defaultDiv').should('contain', 'Mini likes blog')
 
       for (let n = 0; n < 3; n++) {
         cy.get('.defaultDiv')
@@ -137,13 +137,8 @@ describe('Blog app', function () {
         })
       }
 
-      cy.get('.onViewClickDiv')
-        .eq(1)
-        .get(':nth-child(5) > .onViewClickDiv > :nth-child(1) > .hide')
-        .click({ force: true })
-
-      cy.get('.blogs').eq(0).should('contain', 'Mini likes blog')
-      cy.get('.blogs').eq(1).should('contain', 'Max likes blog')
+      cy.get(':nth-child(5) > .defaultDiv').should('contain', 'Mini likes blog')
+      cy.get(':nth-child(6) > .defaultDiv').should('contain', 'Max likes blog')
     })
   })
 })
