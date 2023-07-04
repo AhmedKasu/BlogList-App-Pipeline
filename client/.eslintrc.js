@@ -7,11 +7,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:cypress/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
   overrides: [],
   parserOptions: {
     ecmaFeatures: {
@@ -20,7 +16,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'cypress'],
+  plugins: ['react'],
   settings: {
     react: {
       version: 'detect',
