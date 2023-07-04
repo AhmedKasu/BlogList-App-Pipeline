@@ -68,8 +68,8 @@ jobs:
         if: ${{ success() && steps.deploy.conclusion == 'success' }}
         with:
           severity: info
-          text: A new version of Pokedex deployed
-          details: to https://ahmed-kasu-full-stack-pokedex.fly.dev/ by @${{ github.actor }}
+          text: A new version of Bloglist deployed
+          details: to https://blog-list-app.fly.dev/ by @${{ github.actor }}
           footer: 'Severity: Informational'
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
