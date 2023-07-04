@@ -1,15 +1,31 @@
 module.exports = {
+  root: true,
   env: {
+    browser: true,
+    commonjs: true,
+    es2021: true,
     node: true,
-    es6: true,
-    'jest/globals': true,
+    jest: true,
   },
-  extends: ['eslint:recommended', 'plugin:jest/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:cypress/recommended',
+  ],
+  overrides: [],
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['jest'],
+  plugins: ['react', 'cypress'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   rules: {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
