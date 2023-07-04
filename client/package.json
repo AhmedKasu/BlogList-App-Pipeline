@@ -21,14 +21,6 @@
     "eslint": "eslint .",
     "cypress:run": "npx cypress run --record"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ],
-    "parserOptions": {
-      "ecmaVersion": "latest"
-    }
-  },
   "browserslist": {
     "production": [
       ">0.2%",
